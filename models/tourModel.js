@@ -177,11 +177,11 @@ toursSchema.pre(/^find/, function(next) {
     next();
 });
 
-//2. Post
-toursSchema.post(/^find/, function(docs, next) {
-    console.log(`Query Took ${Date.now() - this.start} milliSecounds`);
-    next();
-});
+// //2. Post
+// toursSchema.post(/^find/, function(docs, next) {
+//     console.log(`Query Took ${Date.now() - this.start} milliSecounds`);
+//     next();
+// });
 
 //Aggregation MiddleWare (Called When An Aggregation is being Done)
 // toursSchema.pre('aggregate', function(next) {

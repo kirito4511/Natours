@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const express = require('express');
 const cookieParser = require('cookie-parser');
-
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorController = require('./controllers/errorController')
@@ -65,6 +65,7 @@ app.use(
     })
 );
 
+app.use(compression());
 app.use((req, res, next) => {
     req.requireTime = new Date().toISOString();
     next();
