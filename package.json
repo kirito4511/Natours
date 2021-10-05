@@ -38,12 +38,12 @@
     "slugify": "^1.6.0",
     "stripe": "^8.178.0",
     "validator": "^13.6.0",
-    "xss-clean": "^0.1.1"
+    "xss-clean": "^0.1.1",
+    "sharp": "^0.29.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
-    "ndb": "^1.1.5",
-    "sharp": "^0.29.1"
+    "ndb": "^1.1.5"
   },
   "engines": {
     "node": ">=10.0.0"
