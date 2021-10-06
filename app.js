@@ -24,11 +24,6 @@ const app = express();
 //Setting for Trusting Prxy
 app.enable('trust proxy');
 
-
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
-
-// Global Midllewares
 //Implement Cors
 app.use(cors());
 //To Allow our api only to some origins i.e websites we use
@@ -40,7 +35,13 @@ app.use(cors());
 //Non-Simple Requests ( all other requests and sending cookies etc)
 app.options('*', cors());
 //for just specific routes
-//app.use('/api/v1/tours', cors());
+//app.options('/api/v1/tours', cors());
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+// Global Midllewares
+
 
 // Serving Static Files
 app.use(express.static(path.join(__dirname, `public`)));
