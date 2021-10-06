@@ -24,4 +24,4 @@ router
       authController.restrictTo('user', 'admin'), 
       reviewController.deleteReview);
 
-module.exports = router;
+module.exports = router; 

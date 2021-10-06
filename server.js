@@ -38,5 +38,5 @@ process.on('SIGTERM', () => {
     console.log('SIGTERM RECIVED. Shutting Down...');
     server.close(() => {
         console.log('Process Terminated');
-    })
-})
+    });
+});

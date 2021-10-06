@@ -99,4 +99,4 @@ userSchema.methods.createResetPasswordToken = function() {
 //Creating User Model
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+module.exports = User; 

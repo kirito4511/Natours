@@ -41,4 +41,4 @@ export const displayMap = (locations) => {
             left: 100
         }
     });
-}
+};

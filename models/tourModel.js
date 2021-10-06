@@ -194,4 +194,4 @@ toursSchema.pre(/^find/, function(next) {
 // Creating Model
 const Tour = mongoose.model('Tour', toursSchema);
 
-module.exports = Tour;
+module.exports = Tour; 

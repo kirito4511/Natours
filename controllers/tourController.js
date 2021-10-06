@@ -79,7 +79,7 @@ exports.getAllTours = factory.getAll(Tour);
 exports.createNewTour = factory.createOne(Tour);
 exports.updateTour = factory.updateOne(Tour);
 exports.deleteTour = factory.deleteOne(Tour);
-exports.getTour = factory.getOne(Tour, { path: 'reviews'}) 
+exports.getTour = factory.getOne(Tour, { path: 'reviews'});
 
 exports.getTourStats = catchAsync(async (req, res, next) => {
     const stats = await Tour.aggregate([

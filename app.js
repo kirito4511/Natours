@@ -54,7 +54,7 @@ app.use(helmet());
 //For Stripe WebHooks (Put Before the body parser because we want this data not in json)
 app.post('/webhook-checkout', express.raw({ type: 'application/json' }), bookingController.webhookCheckout);
 
-//Limiting No of request from the same IP
+//Limiting No of request from the same IP 
 const limiter = rateLimit({
     max: 100,
     windowMs: 60 * 60 * 1000,

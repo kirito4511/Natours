@@ -212,5 +212,5 @@ exports.updateMyPassword = catchAsync(async (req, res, next) => {
     await user.save();
     //4.Update passwordChangetAt property(which is automatically done using "presave" middleware)
     //5.log in the user
-    createSendToken(user, 200, req, res);
+    createSendToken(user, 200, req, res); 
 });

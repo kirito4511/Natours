@@ -897,7 +897,7 @@ body {
 .nav__el:link,
 .nav__el:visited {
   color: #3cff00;
-  text-transform: uppercase;
+  text-transform: uppercase; 
   font-size: 1.6rem;
   text-decoration: none;
   display: -webkit-inline-box;

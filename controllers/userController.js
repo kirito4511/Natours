@@ -91,5 +91,5 @@ exports.deleteMe = catchAsync(async (req, res, next) => {
 //Genereted By factory Handler
 exports.getAllUsers = factory.getAll(User);
 exports.getUser = factory.getOne(User);
-exports.updateUser = factory.updateOne(User);  //Do not update Password with this
+exports.updateUser = factory.updateOne(User);  //Do not update Password with this route
 exports.deleteUser = factory.deleteOne(User);

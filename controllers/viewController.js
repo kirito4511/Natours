@@ -32,7 +32,7 @@ exports.getTour = catchAsync ( async (req, res, next) => {
         return next(new AppError('There is No tour with that Name', 404))
     }
 
-    //2. Build Template
+    //2. Build Template in pug
 
     //3. Render  that template using data from (1)
     res.status(200)
