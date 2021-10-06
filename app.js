@@ -38,7 +38,7 @@ app.use(cors());
 
 //Simple Requests (get or post)
 //Non-Simple Requests ( all other requests and sending cookies etc)
-app.use('*', cors());
+app.options('*', cors());
 //for just specific routes
 //app.use('/api/v1/tours', cors());
 
