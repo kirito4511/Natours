@@ -11,12 +11,14 @@ const compression = require('compression');
 const cors = require('cors');
 
 const AppError = require('./utils/appError');
-const globalErrorController = require('./controllers/errorController')
+const globalErrorController = require('./controllers/errorController');
 const tourRouter = require('./routes/tourRouter');
 const userRouter = require('./routes/userRouter');
 const reviewRouter = require('./routes/reviewRouter');
-const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRouter');
+const bookingController = require('./controllers/bookingController');
+
+const viewRouter = require('./routes/viewRouter');
 
 //Start Express
 const app = express();
@@ -56,6 +58,9 @@ const limiter = rateLimit({
     message: 'Too Many Requests from this IP. Plz tryagain in 1hr'
 });
 app.use('/api', limiter);
+
+//For Stripe WebHooks (Put Before the body parser because we want this data not in json)
+app.post('/webhook-checkout', express.raw({ type: 'application/json' }), bookingController.webhookCheckout);
 
 //Body Parser Gets req.body
 app.use(express.json({ limit: '10kb'}));

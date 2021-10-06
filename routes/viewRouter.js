@@ -11,7 +11,8 @@ router.get('/my-tours', authController.protect, viewController.getMyTours);
 router.post('/submit-user-data', authController.protect, viewController.updateUser);
 
 
-router.get('/', bookingController.createBoookingCheckout, authController.isLoggedIn, viewController.getOverview);
+//For Creating Booking without WebHooks ( bookingController.createBoookingCheckout,)
+router.get('/', authController.isLoggedIn, viewController.getOverview);
 
 
 router.use(authController.isLoggedIn);
