@@ -9,7 +9,6 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 const AppError = require('./utils/appError');
 const globalErrorController = require('./controllers/errorController');
