@@ -11,11 +11,11 @@ const bookingSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: [true, 'A booking must belong to a User']
+        // required: [true, 'A booking must belong to a User']
     },
     price: {
         type: Number,
-        // required: [true, 'A booking must have a Tour']
+        required: [true, 'A booking must have a Tour']
     },
     createdAt: {
         type: Date,
