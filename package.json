@@ -19,6 +19,7 @@
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
@@ -35,17 +36,17 @@
     "nodemon": "^2.0.13",
     "parcel-bundler": "^1.12.5",
     "pug": "^3.0.2",
+    "sharp": "^0.29.1",
     "slugify": "^1.6.0",
     "stripe": "^8.178.0",
     "validator": "^13.6.0",
-    "xss-clean": "^0.1.1",
-    "sharp": "^0.29.1"
+    "xss-clean": "^0.1.1"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
     "ndb": "^1.1.5"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": "^14"
   }
 }

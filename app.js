@@ -8,6 +8,7 @@ const rateLimit = require('express-rate-limit');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorController = require('./controllers/errorController')
@@ -28,6 +29,19 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // Global Midllewares
+//Implement Cors
+app.use(cors());
+//To Allow our api only to some origins i.e websites we use
+// app.use(cors({
+//     origin: 'https://www.natours.com'
+// }));
+
+//Simple Requests (get or post)
+//Non-Simple Requests ( all other requests and sending cookies etc)
+app.use('*', cors());
+//for just specific routes
+//app.use('/api/v1/tours', cors());
+
 // Serving Static Files
 app.use(express.static(path.join(__dirname, `public`)));
 
@@ -82,6 +96,7 @@ app.use((req, res, next) => {
 
 
 //APi Routes
+//to use cors for a specific route than remove from above and add to only the route which we want to allow
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
