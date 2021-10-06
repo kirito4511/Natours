@@ -15,7 +15,7 @@ const bookingSchema = new mongoose.Schema({
     },
     price: {
         type: Number,
-        required: [true, 'A booking must have a Tour']
+        // required: [true, 'A booking must have a Tour']
     },
     createdAt: {
         type: Date,
