@@ -60,7 +60,7 @@ const createBoookingCheckout = async session => {
 }
 
 exports.webhookCheckout = (req, res, next) => {
-    const signature = req.headers('stripe-signature');
+    const signature = req.headers['stripe-signature'];
     try{
         var event = stripe.webhooks.contructEvent(req.body, signature, process.env.STRIPE_WEBHOOK_SECRET)
     } catch (err) {
@@ -68,9 +68,10 @@ exports.webhookCheckout = (req, res, next) => {
     }
 
     if(event.type === 'checkout.session.completed') {
-        createBoookingCheckout(event.data.object)
+        createBoookingCheckout(event.data.object);
     }
     res.status(200).json({ recived: true});
+    
 }
 
 //Genereted By factory Handler
