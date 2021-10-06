@@ -52,6 +52,9 @@ app.use(express.static(path.join(__dirname, `public`)));
 //Set Security Http Headers
 app.use(helmet());
 
+//For Stripe WebHooks (Put Before the body parser because we want this data not in json)
+app.post('/webhook-checkout', express.raw({ type: 'application/json' }), bookingController.webhookCheckout);
+
 //Limiting No of request from the same IP
 const limiter = rateLimit({
     max: 100,
@@ -60,8 +63,6 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter);
 
-//For Stripe WebHooks (Put Before the body parser because we want this data not in json)
-app.post('/webhook-checkout', bodyParser.raw({ type: 'application/json' }), bookingController.webhookCheckout);
 
 //Body Parser Gets req.body
 app.use(express.json({ limit: '10kb'}));
