@@ -9,6 +9,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const AppError = require('./utils/appError');
 const globalErrorController = require('./controllers/errorController');
@@ -60,7 +61,7 @@ const limiter = rateLimit({
 app.use('/api', limiter);
 
 //For Stripe WebHooks (Put Before the body parser because we want this data not in json)
-app.post('/webhook-checkout', express.raw({ type: 'application/json' }), bookingController.webhookCheckout);
+app.post('/webhook-checkout', bodyParser.raw({ type: 'application/json' }), bookingController.webhookCheckout);
 
 //Body Parser Gets req.body
 app.use(express.json({ limit: '10kb'}));

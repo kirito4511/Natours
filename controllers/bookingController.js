@@ -60,7 +60,7 @@ const createBoookingCheckout = catchAsync(async (session) => {
    console.log(book)
 });
 
-exports.webhookCheckout = (req, res) => {
+exports.webhookCheckout = async (req, res) => {
     const signature = req.headers['stripe-signature'];
 
     let event;
@@ -71,7 +71,7 @@ exports.webhookCheckout = (req, res) => {
     catch (err) {
         res.status(400).send(`Webhook Error: ${err.message}`);
     }
-    if(event.type === "checkout.session.completed") createBoookingCheckout(event.data.object);
+    if(event.type === "checkout.session.completed") await createBoookingCheckout(event.data.object);
 
     res.status(200).json({ received: true});
     
