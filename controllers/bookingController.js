@@ -60,7 +60,7 @@ const createBoookingCheckout = catchAsync(async (session) => {
 });
 
 exports.webhookCheckout = (req, res) => {
-    const signature = request.headers['stripe-signature'];
+    const signature = req.headers['stripe-signature'];
 
     let event;
 
